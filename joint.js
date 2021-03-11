@@ -27,6 +27,8 @@ class Joint {
         line(posA.x,posA.y,this.pointB.x,this.pointB.y);
         pop();
         image(this.gfx,posA.x - 30,posA.y - 10,50,20);
+        }else{
+            bird.addPos();
         }
         
         image(this.gfx3,223,height-209);

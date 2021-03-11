@@ -21,7 +21,7 @@ function setup(){
     //box[index+1] = new Box(0,0,50,50)
     
     bird = new Bird(50,50);
-    joint = new Joint(bird.body,{x:250,y:height-180},.1,.05);
+    joint = new Joint(bird.body,{x:250,y:height-180},.1,.04);
     ground = new Ground(width/2,height,width,20)
     /*push()
     tint(255,130)
@@ -30,8 +30,7 @@ function setup(){
 }
 
 function draw(){
-    background(220, 99.9)
-    
+    background(220, 99.9);
     Engine.update(engine);
     
     
@@ -40,13 +39,16 @@ function draw(){
         box[index].display()
         box[index+1].display()
         log[index].display()
+        
         pig[index].display()
     }
     
     if(mouseIsPressed){
         //Matter.Body.setVelocity(bird.body,{x:0,y:0});
         Matter.Body.setPosition(bird.body,{x:mouseX,y:mouseY});
-       joint.join(bird.body);
+        joint.join(bird.body);
+        bird.clearSmoke()
+       
         //bird.body.position.x = mouseX;
     //bird.body.position.y = mouseY;
     }
